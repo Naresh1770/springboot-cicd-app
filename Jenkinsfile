@@ -19,7 +19,7 @@ pipeline{
         }
         stage('Docker image build'){
             steps{
-                sh 'docker build -t naresh1770/springboot-cicd:latest .'
+                sh 'docker build -t springboot-cicd:latest .'
             }
         }
         stage('Deploy'){
