@@ -19,14 +19,22 @@ pipeline{
         }
         stage('Docker image build'){
             steps{
-                sh 'docker build -t springboot-cicd:latest .'
+                sh 'docker build -t naresh1770/springboot-cicd:latest .'
+            }
+        }
+        staage('Docker push'){
+             steps{
+                sh ''' 
+                   docker login -u naresh1770 -p Naresh@1770
+                   docker push naresh1770/springboot-cicd:latest
+                   '''
             }
         }
         stage('Deploy'){
             steps{
                 sh '''
                 docker rm -f springboot-cicd || true
-                docker run -d -p 8082:8080 --name springboot-cicd springboot-cicd:latest
+                docker run -d -p 8082:8080 --name springboot-cicd naresh1770/springboot-cicd:latest
                 '''
             }
         }
