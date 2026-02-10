@@ -22,7 +22,7 @@ pipeline{
                 sh 'docker build -t naresh1770/springboot-cicd:latest .'
             }
         }
-        staage('Docker push'){
+        stage('Docker push'){
              steps{
                 sh ''' 
                    docker login -u naresh1770 -p Naresh@1770
