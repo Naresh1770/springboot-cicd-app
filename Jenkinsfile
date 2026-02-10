@@ -3,8 +3,7 @@ pipeline{
     stages{
         stage('Git'){
             steps{
-                git url: 'git@github.com:Naresh1770/springboot-cicd-app.git
-',
+                git url: 'git@github.com:Naresh1770/springboot-cicd-app.git',
                     branch: 'main'
             }
         }
