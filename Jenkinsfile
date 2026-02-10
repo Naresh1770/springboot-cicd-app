@@ -9,7 +9,7 @@ pipeline{
         }
         stage('Build'){
             steps{
-                sh 'mvn package'
+                sh 'mvn clear package'
             }
         }
         stage('Test'){
@@ -26,7 +26,7 @@ pipeline{
             steps{
                 sh '''
                 docker rm -f springboot-cicd || true
-                docker run -d -p 8082:8080 --name springboot-cicd springboot-cicd:latest
+                docker run -d -p 8082:8080 --name springboot-cicd naresh1770/springboot-cicd:latest
                 '''
             }
         }
