@@ -9,7 +9,7 @@ pipeline{
         }
         stage('Build'){
             steps{
-                sh 'mvn clear package'
+                sh 'mvn clean package'
             }
         }
         stage('Test'){
@@ -19,7 +19,7 @@ pipeline{
         }
         stage('Docker image build'){
             steps{
-                sh 'docker build -t springboot-cicd:latest .'
+                sh 'docker build -t naresh1770/springboot-cicd:latest .'
             }
         }
         stage('Deploy'){
